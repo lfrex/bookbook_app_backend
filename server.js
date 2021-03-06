@@ -1,9 +1,9 @@
 const express = require('express');
-
+const books =  require('./models/books');
 
 const app = express();
 
-const books = ["LostParadise", "Little Prince", "The Shining", "LostParadise"]
+
 
 app.get('/', (req, res) => {
     res.send("Hi, loosers!")
@@ -19,8 +19,11 @@ app.get('/books/count', (req, res) => {
     res.send(`The number of available ${book}\s is ${count}`);
 })
 
-app.get('/books/:index', (req, res) => {
-    res.send(books[req.params.index]);
+app.get('/books/:index', function(req, res){
+    res.render('show.ejs', {
+
+        book: books[req.params.index]
+    });
 })
 
 
