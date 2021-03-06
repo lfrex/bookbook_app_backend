@@ -10,6 +10,13 @@
         <br>
         Author: <%= book.author %>
         <br>
+        Status: <% if (book.isRead === true) { %>
+            Already read.
+        <% } else { %>
+            Pending to read.
+        <% } %>
+        <br>
+        <br>
         <img src="<%= book.img %>" alt="book cover" />
     </body>
 </html>

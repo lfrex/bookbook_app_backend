@@ -5,19 +5,11 @@ const app = express();
 
 
 
-app.get('/', (req, res) => {
-    res.send("Hi, loosers!")
-})
+//Current Routes:
 
-app.get('/books/count', (req, res) => {
-    let book = req.query.book
-
-    let count = books.filter((val) => {
-        return val === book
-    }).length;
-
-    res.send(`The number of available ${book}\s is ${count}`);
-})
+app.get('/books/', (req, res) => {
+    res.send(books);
+});
 
 app.get('/books/:index', function(req, res){
     res.render('show.ejs', {
