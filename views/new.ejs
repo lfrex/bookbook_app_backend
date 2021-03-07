@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bookbook add a new book</title>
 </head>
 <body>
     <h1>Add a new book</h1>
     <br>
     <br>
     <form action="/books" method="POST" id="bookform">
+        <input type="submit" name="" value="Add Book" />
+        <br>
+        <br>
         Title: <input type="text" name="title" />
         <br>
         Author: <input type="text" name="author" />
@@ -25,8 +28,11 @@
         <br>
         Date: <input type="date" name="added" />
         <br>
+        <br>
+        Comments: 
+        <br>
+        <textarea name="comments" form="bookform" rows="10" cols="50" ></textarea>
     </form>
-    Comments: <br>
-    <textarea name="comments" form rows="10" cols="50" ></textarea>
+    
 </body>
 </html>

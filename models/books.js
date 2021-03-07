@@ -7,7 +7,7 @@ const books = [
         comments: "",
         isRead: false,
         img: "https://i.imgur.com/cyiSX5s.jpg",
-        added: "03-05-2021"
+        added: "2021-03-05"
     },
     {
         title:'Choosing Death: the improbable history of Death Metal & Grindcore',
@@ -17,7 +17,7 @@ const books = [
         comments: "",
         isRead: false,
         img: "https://i.imgur.com/0jdLjmw.jpg",
-        added: "03-05-2021"
+        added: "2021-03-02"
     },
     {
         title:'Eloquent JavaScript: a modern introduction to programming',
@@ -27,7 +27,7 @@ const books = [
         comments: "",
         isRead: false,
         img: "https://i.imgur.com/Fnx58jW.jpg",
-        added: "03-05-2021"
+        added: "2021-03-05"
     },
     {
         title:'Of mice and man',
@@ -37,7 +37,7 @@ const books = [
         comments: "",
         isRead: false,
         img: "https://i.imgur.com/bNR8nDF.jpg",
-        added: "03-05-2021"
+        added: "2021-03-05"
     },
     {
         title:'El pastel de chocolate y otros relatos escalofriantes',
@@ -47,7 +47,7 @@ const books = [
         comments: "",
         isRead: false,
         img: "https://i.imgur.com/insmPmh.jpg",
-        added: "03-05-2021"
+        added: "2021-03-06"
     }
 ];  
 
