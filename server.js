@@ -11,6 +11,10 @@ app.get('/books/', (req, res) => {
     res.send(books);
 });
 
+app.get('/books/new', (req, res) => {
+    res.render('new.ejs');
+});
+
 app.get('/books/:index', function(req, res){
     res.render('show.ejs', {
 
