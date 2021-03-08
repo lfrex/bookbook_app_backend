@@ -8,10 +8,7 @@
 </head>
 <body>
     <h1>Add a new book</h1>
-    <br>
-    <br>
-    <form action="/books" method="POST" id="bookform">
-        <input type="submit" name="" value="Add Book" />
+    <form action="/books" method="POST" id="bookform">       
         <br>
         <br>
         Title: <input type="text" name="title" />
@@ -24,7 +21,7 @@
         <br>
         Pending to read? <input type="checkbox" name="isRead" />
         <br>
-        Cover image: <input type="url" name="img" />
+        Cover image URL: <input type="url" name="img" />
         <br>
         Date: <input type="date" name="added" />
         <br>
@@ -32,6 +29,9 @@
         Comments: 
         <br>
         <textarea name="comments" form="bookform" rows="10" cols="50" ></textarea>
+        <br>
+        <br>
+        <input type="submit" name="" value="Add Book" />
     </form>
     
 </body>
