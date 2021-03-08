@@ -11,6 +11,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
 app.use('/books', routes.books);
+app.use('/users', routes.users);
 
 
 
