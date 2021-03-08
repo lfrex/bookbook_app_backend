@@ -18,5 +18,16 @@
         <br>
         <br>
         <img src="<%= book.img %>" alt="book cover" />
+        <br>
+        <br>
+        Comments:
+        <br>
+        <br>
+        <%= book.comments %>
+        <br>
+        <br>
+        <form action="/books">
+            <input type="submit" value="Return to index" />
+        </form>
     </body>
 </html>
