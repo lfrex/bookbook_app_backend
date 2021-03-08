@@ -13,7 +13,9 @@ app.use((req, res, next) => {
 //Current Routes:
 
 app.get('/books/', (req, res) => {
-    res.render("index.ejs");
+    res.render("index.ejs", {
+        books: books
+    });
 });
 
 app.get('/books/new', (req, res) => {
