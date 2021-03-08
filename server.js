@@ -6,6 +6,7 @@ const app = express();
 const routes = require('./routes');
 
 //Middleware
+app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
