@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookbook-App Profile Page</title>
+    <link rel="stylesheeet" href="/css/app.css" />
+</head>
+<body>
+    <h1> Hi <%= user.name %> Welcome back to <span class="app-name">Bookbook-App</span>!</h1>
+
+    <form action="/users/profile/<%=index%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value=<%=user.name%> />
+        <br> 
+        <br>
+        Username: <input type="text" name="username" value=<%=user.username%> /> 
+        <br> 
+        <br>
+        Password: <input type="text" name="password" value=<%=user.password%> />
+        <br> 
+        <br> 
+        <br>
+           
+        <input type="submit" value="Edit Profile" />
+    </form>
+    <br>
+    <form action="/users/<%=index%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete User" />
+    </form>
+    <br>
+    <br>
+    <form action="/books">
+        <input type="submit" value="View list of available books" />
+    </form>
+    <br>
+    or:
+    <br>
+    <form action="/books/new">
+        <input type="submit" value="Add a new book!" />
+    </form>    
+ 
+</body>
+</html>
