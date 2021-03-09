@@ -1,4 +1,4 @@
-const books = require('../models/books.js');
+const books = require('../books.js');
 
 
 const index = (req, res) => {
