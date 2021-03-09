@@ -1,5 +1,6 @@
 const User = require('../models').User;
-
+const Book = require('../models').Book
+;
 
 const index = (req, res) => {
     res.render('users/index.ejs')
@@ -34,25 +35,41 @@ const login = (req, res) => {
 }
 
 const renderProfile = (req, res) => {
-    User.findByPk(req.params.index)
-    .then(userProfile => {
-        res.render('users/profile.ejs', {
-            user: userProfile
-        })
+    User.findByPk(req.params.index, {
+        include : [
+            {
+                model: Book,
+                attributes: [ 'id', 'title', 'author', 'isbn', 'genre', 'isRead', 'img', 'added', 'comments' ]
+            }
+        ]
     })
-}
+    .then(userProfile => {
+        Book.findAll()
+        .then(allBooks => {
+            res.render('users/profile.ejs', {
+                user: userProfile,
+                books: allBooks
+            });
+        });       
+    });
+};
 
 const editProfile = (req, res) => {
     User.update(req.body, {
-        where: {
-            id: req.params.index
-        },
+        where: { id: req.params.index },
         returning: true
     })
     .then(updatedUser => {
-        res.redirect(`/users/profile/${req.params.index}`);
-    })
-}
+        Book.findByPk(req.body.book)
+        .then(foundBook => {
+            User.findByPk(req.params.index)
+            .then(foundUser => {
+                foundUser.addBook(foundBook);
+                res.redirect(`/users/profile/${req.params.index}`);
+            });
+        });    
+    });
+};
 
 const deleteUser = (req, res) => {
     User.destroy({
