@@ -23,6 +23,19 @@
         <img src="<%= user.pic %> " alt="profile picture" />
         <br> 
         <br>
+        Add a book:
+        <br>
+        <select name="book">
+            <% for (let i = 0; i < books.length; i++) { 
+                let selected = (i == 0) ? "selected" : "";
+            %>
+                <option value="<%= books[i].id%>" <%=selected%>>
+                    <%=books[i].title%>
+                </option>
+            <% } %>
+        </select>
+        <br>
+        <br>
         <input type="submit" value="Edit Profile" />
     </form>
     <br>
@@ -40,7 +53,19 @@
     <br>
     <form action="/books/new">
         <input type="submit" value="Add a new book!" />
-    </form>    
+    </form>  
+    <br>
+    <br>
+    <h3>Your current Pending Books List:</h3>
+    <% for (let i =0; i < user.Books.length; i++){ %>
+        <li>
+            <a href = "/books/<%=user.Books[i].id%>"><%= user.Books[i].name%>
+            <img src="<%= user.Books[i].img%>" alt="book cover"/>
+            </a>
+        </li>
+        <br>
+        <% } %>
+    <br><br> 
  
 </body>
 </html>
