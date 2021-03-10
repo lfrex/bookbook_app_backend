@@ -1,5 +1,7 @@
 const Book = require('../models').Book;
 
+const constants = require('../constants');
+
 
 const index = (req, res) => {
     Book.findAll()
@@ -9,6 +11,16 @@ const index = (req, res) => {
         });
     })   
 };
+
+const getAll = (req, res) => {
+    Book.findAll()
+    .then(books => {
+        res.status(constants.SUCCESS).json(books)
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+    })
+}
 
 const show = (req, res) => {
     Book.findByPk(req.params.index)
@@ -70,6 +82,7 @@ Book.destroy({ where: { id: req.params.index } })
 
 module.exports = {
     index,
+    getAll,
     show,
     renderNew,
     postBook,

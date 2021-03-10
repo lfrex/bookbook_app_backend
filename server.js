@@ -1,9 +1,11 @@
 const express = require('express');
 const methodOverride = require('method-override');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
 const routes = require('./routes');
+
 
 const corsOptions = {
     origin: ['http://localhost:3000'],
@@ -13,6 +15,7 @@ const corsOptions = {
   }
 
 app.use(cors(corsOptions))
+app.use(bodyParser.json());
 
 //Middleware
 app.use(express.static("public"));
