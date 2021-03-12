@@ -67,6 +67,16 @@ const editProfile = (req, res) => {
 //     })
    
 // };
+const signup = (req, res) => {
+    User.create(req.body)
+    .then(newUser => {
+        res.status(constants.SUCCESS).json({ "user": newUser});
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`Error: ${err}`);
+    })
+}
+
 
 // const renderLogin = (req, res) => {
 //     res.render('users/login.ejs')
@@ -83,6 +93,21 @@ const editProfile = (req, res) => {
 //         res.redirect(`/users/profile/${foundUser.id}`);
 //     })
 // }
+
+const login = (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username,
+            password: req.body.password
+        }
+    })
+    .then(foundUser => {
+        res.STATUS(constants.SUCCESS).json({"user": foundUser})
+    })
+    .catch(err => {
+        res.status(constants.BAD_REQUEST).send(`ERROR: Incorrect username/password`);
+    })
+}
 
 // const renderProfile = (req, res) => {
 //     User.findByPk(req.params.index, {
@@ -134,7 +159,9 @@ const editProfile = (req, res) => {
 
 module.exports = {
     getProfile,
-    editProfile
+    editProfile,
+    signup,
+    login
     // index,
     // renderSignup,
     // signup,
