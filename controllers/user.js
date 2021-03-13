@@ -25,6 +25,15 @@ const getProfile = (req, res) => {
     })
 }
 
+const allUsers = (req, res) => {
+    User.findAll()
+    .then(users => {
+        res.status(constants.SUCCESS).json(users)
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+    })
+}
 
 const editProfile = (req, res) => {
     User.update(req.body, {
@@ -161,7 +170,8 @@ module.exports = {
     getProfile,
     editProfile,
     signup,
-    login
+    login,
+    allUsers
     // index,
     // renderSignup,
     // signup,

@@ -3,6 +3,7 @@ const router = express.Router();
 const ctrl = require('../controllers');
 
 router.get('/profile', ctrl.user.getProfile);
+router.get('/all', ctrl.user.allUsers);
 router.put('/profile', ctrl.user.editProfile);
 router.post('/signup', ctrl.user.signup);
 router.post('/login', ctrl.user.login);
