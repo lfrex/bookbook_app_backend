@@ -9,7 +9,7 @@ const routes = require('./routes');
 
 
 const corsOptions = {
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000'], //Change for liink to FrontEnd in surge app.
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
