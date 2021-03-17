@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 // const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
@@ -29,7 +31,7 @@ app.use('/user', routes.user);
 
 
 
-app.listen(3001, () => {
+app.listen(process.env.PORT, () => {
     console.log("Bookbook backend up!");
 })
 
