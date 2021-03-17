@@ -20,8 +20,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
-    res.setHeader("Acces-Control-Allow-Origin", "http://bookbook-app.surge.sh/");
-        res.header("Acces-Control-Allow-Headers", "Origin, X-Requested-With, Content-type, Accept");
+    res.setHeader("Access-Control-Allow-Origin", "http://bookbook-app.surge.sh");
+        res.header("Access-Control-Allow-Headers", 
+        "Origin, X-Requested-With, Content-type, Accept"
+        );
         next();
 })
 
