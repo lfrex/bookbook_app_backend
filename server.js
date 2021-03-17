@@ -17,8 +17,16 @@ const corsOptions = {
     optionsSuccessStatus: 200 //legacy browsers
   }
 
-app.use(cors(corsOptions))
+
+app.use(cors(corsOptions));
+app.use((req, res, next) => {
+    res.setHeader("Acces-Control-Allow-Origin", "http://bookbook-app.surge.sh/");
+        res.header("Acces-Control-Allow-Headers", "Origin, X-Requested-With, Content-type, Accept");
+        next();
+})
+
 app.use(bodyParser.json());
+
 
 //Middleware
 // app.use(express.static("public"));
